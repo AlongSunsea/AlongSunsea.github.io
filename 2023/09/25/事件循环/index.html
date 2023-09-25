@@ -16,24 +16,25 @@
   <meta name="author" content="AlongSunsea">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前后端交互-搜索框模糊查询记录一下常见功能前后端交互的搜索框模糊查询。 大致思路：当前端点击搜索功能，获取到搜索框内的内容，携带请求的参数向后端发送网络请求，后端接收到网络请求，根据前端带来请求参数，根据次参数进行数据库语句查询。   前端–&gt;后端：给搜索按钮添加点击事件，跳转路由来到搜索页，并携带参数key。 123456this.$router.push(&amp;#123;         n">
+    <meta name="description" content="事件循环（Event Loop）事件循环流程事件循环的作用：事件循环负责执行代码，收集和处理时间以及执行队列中的子任务。 为什么会有事件循环？ JavaScript是单线程（某一时刻只能执行一行代码），为了让耗时代码不阻塞其他代码运行，所以设计了时间循环模型。 概念：执行代码和收集异步任务的模型，在调用栈空闲，反复调用任务队列里的回调函数的执行机制，叫做事件循环。 123456789console">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前后端交互-搜索框模糊查询">
-<meta property="og:url" content="http://example.com/2023/09/19/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92-%E6%90%9C%E7%B4%A2%E6%A1%86%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/index.html">
+<meta property="og:title" content="事件循环">
+<meta property="og:url" content="http://example.com/2023/09/25/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/index.html">
 <meta property="og:site_name" content="欢迎来到我的博客！">
-<meta property="og:description" content="前后端交互-搜索框模糊查询记录一下常见功能前后端交互的搜索框模糊查询。 大致思路：当前端点击搜索功能，获取到搜索框内的内容，携带请求的参数向后端发送网络请求，后端接收到网络请求，根据前端带来请求参数，根据次参数进行数据库语句查询。   前端–&gt;后端：给搜索按钮添加点击事件，跳转路由来到搜索页，并携带参数key。 123456this.$router.push(&amp;#123;         n">
+<meta property="og:description" content="事件循环（Event Loop）事件循环流程事件循环的作用：事件循环负责执行代码，收集和处理时间以及执行队列中的子任务。 为什么会有事件循环？ JavaScript是单线程（某一时刻只能执行一行代码），为了让耗时代码不阻塞其他代码运行，所以设计了时间循环模型。 概念：执行代码和收集异步任务的模型，在调用栈空闲，反复调用任务队列里的回调函数的执行机制，叫做事件循环。 123456789console">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2023/09/19/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92-%E6%90%9C%E7%B4%A2%E6%A1%86%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/整体流程.png">
-<meta property="article:published_time" content="2023-09-19T13:02:55.000Z">
-<meta property="article:modified_time" content="2023-09-25T06:28:45.937Z">
+<meta property="og:image" content="http://example.com/2023/09/25/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF.png">
+<meta property="og:image" content="http://example.com/2023/09/25/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/宏任务微任务.png">
+<meta property="article:published_time" content="2023-09-25T12:46:21.000Z">
+<meta property="article:modified_time" content="2023-09-25T14:18:08.471Z">
 <meta property="article:author" content="AlongSunsea">
-<meta property="article:tag" content="案例实战">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2023/09/19/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92-%E6%90%9C%E7%B4%A2%E6%A1%86%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/整体流程.png">
+<meta name="twitter:image" content="http://example.com/2023/09/25/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF.png">
   
   
   
-  <title>前后端交互-搜索框模糊查询 - 欢迎来到我的博客！</title>
+  <title>事件循环 - 欢迎来到我的博客！</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="前后端交互-搜索框模糊查询"></span>
+            <span id="subtitle" data-typed-text="事件循环"></span>
           
         </div>
 
@@ -209,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-19 21:02" pubdate>
-          2023年9月19日 晚上
+        <time datetime="2023-09-25 20:46" pubdate>
+          2023年9月25日 晚上
         </time>
       </span>
     
@@ -221,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          1.9k 字
         
       </span>
     
@@ -232,7 +233,7 @@
         
         
         
-          21 分钟
+          16 分钟
         
       </span>
     
@@ -270,48 +271,63 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">前后端交互-搜索框模糊查询</h1>
+            <h1 style="display: none">事件循环</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="前后端交互-搜索框模糊查询"><a href="#前后端交互-搜索框模糊查询" class="headerlink" title="前后端交互-搜索框模糊查询"></a>前后端交互-搜索框模糊查询</h1><p><strong>记录一下常见功能前后端交互的搜索框模糊查询。</strong></p>
-<p>大致思路：当前端点击搜索功能，获取到搜索框内的内容，携带请求的参数向后端发送网络请求，后端接收到网络请求，根据前端带来请求参数，根据次参数进行数据库语句查询。</p>
-<img src="/2023/09/19/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92-%E6%90%9C%E7%B4%A2%E6%A1%86%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2/整体流程.png" srcset="/img/loading.gif" lazyload alt="交互流程" style="zoom: 67%;">
+                <h1 id="事件循环（Event-Loop）"><a href="#事件循环（Event-Loop）" class="headerlink" title="事件循环（Event Loop）"></a>事件循环（Event Loop）</h1><h3 id="事件循环流程"><a href="#事件循环流程" class="headerlink" title="事件循环流程"></a>事件循环流程</h3><p><strong>事件循环的作用</strong>：事件循环负责执行代码，收集和处理时间以及执行队列中的子任务。</p>
+<p><strong>为什么会有事件循环？</strong></p>
+<p>JavaScript是单线程（某一时刻只能执行一行代码），为了让耗时代码不阻塞其他代码运行，所以设计了时间循环模型。</p>
+<p><strong>概念：</strong>执行代码和收集异步任务的模型，在调用栈空闲，反复调用任务队列里的回调函数的执行机制，叫做事件循环。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>)<br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>)<br>&#125;, <span class="hljs-number">0</span>)<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">3</span>)<br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">4</span>)<br>&#125;, <span class="hljs-number">2000</span>)<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">5</span>)<br></code></pre></td></tr></table></figure>
 
-<p>前端–&gt;后端：给搜索按钮添加点击事件，跳转路由来到搜索页，并携带参数<code>key</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vue">this.$router.push(&#123;<br>         name:&#x27;list&#x27;,<br>         query:&#123;<br>             key:this.searchVal<br>        &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+<p>以上代码在事件循环机制内运行过程：</p>
+<p><img src="/2023/09/25/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF.png" srcset="/img/loading.gif" lazyload alt="事件循环具体过程"></p>
+<p>①：执行<code>console.log(1)</code>这是同步代码，进入调用栈，打印1，出栈。</p>
+<p>②：执行第二段代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>)<br>&#125;, <span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
 
-<p>跳转路由后创建组件时调用请求接口函数：将路由携带的参数传递给后端。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs vue">created()&#123;<br>   this.getData()<br>&#125;,<br>   methods:&#123;<br>      getData()&#123;<br>          http.$axios(&#123;<br>               url:&#x27;/api/goods/shopList&#x27;,<br>               params:&#123;<br>                    searchName:this.$route.query.key<br>               &#125;<br>          &#125;).then(res=&gt;&#123;<br>                this.goodsList=res<br>                console.log(res);<br>          &#125;)<br>      &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>这是异步代码，放入宿主环境（浏览器），待异步时间结束，返回任务队列。</p>
+<p>③：执行<code>console.log(3)</code>同步代码，进入调用栈，打印3，出栈。</p>
+<p>④：执行第四段代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">4</span>)<br>&#125;, <span class="hljs-number">2000</span>)<br></code></pre></td></tr></table></figure>
 
-<p><code>http.$axios</code>为二次封装的axios，具体操作：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs vue">import axios from &#x27;axios&#x27;<br>// 引入mint-ui里的Indicator，在相应数据时出现小动画<br>import &#123;Indicator&#125; from &#x27;mint-ui&#x27;<br>export default &#123;<br>    common:&#123;<br>        method:&#x27;GET&#x27;,<br>        data:&#123;&#125;,<br>        params:&#123;&#125;<br>    &#125;,<br>    $axios(option=&#123;&#125;)&#123;<br>        option.method = option.method || this.common.method;<br>        option.data = option.data || this.common.data;<br>        option.params = option.params || this.common.params;<br><br>        Indicator.open(&#x27;加载中...&#x27;)<br>        return axios(option).then(v=&gt;&#123;<br>            let data = v.data.data<br>            return new Promise((res,rej)=&gt;&#123;<br>                if(!v) return rej()<br>                Indicator.close()<br>                res(data)<br>            &#125;)<br>        &#125;)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>这里也是异步代码，放入宿主环境（浏览器），待两秒后进入任务队列。</p>
+<p>⑤：<code>console.log(5)</code>同步代码，放入调用栈，打印5，出栈。</p>
+<p>此时调用栈空闲，反复调用任务队列里的回调函数，先调用第二段代码到调用栈，打印2，出栈，再调用第四段代码到调用栈，打印4，再出栈。</p>
+<p>所以打印数字的顺序：1  3  5  2  4。</p>
+<h3 id="宏任务和微任务"><a href="#宏任务和微任务" class="headerlink" title="宏任务和微任务"></a>宏任务和微任务</h3><p><strong>任务队列</strong>又分为<strong>宏任务（macro-task）</strong>和<strong>微任务（micro-task）</strong>。</p>
+<p>宏任务：浏览器执行的异步代码。例如：JS 执行脚本事件，<code>setTimeout/setInterval</code>，AJAX请求完成</p>
+<p>事件，用户交互事件等。</p>
+<p>微任务：JS引擎执行的异步代码。例如：Promise对象.then()的回调。</p>
+<p><strong>代码执行：</strong></p>
+<p>1.执行第一个 script 脚本事件宏任务，里面同步代码。</p>
+<p>2.遇到 宏任务&#x2F;微任务 交给宿主环境，有结果回调函数进入对应队列。</p>
+<p>3.当执行调用栈空闲时，先清空微任务队列，再执行下一个宏任务，从1再来。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;script&gt;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>)<br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>)<br>&#125;,<span class="hljs-number">0</span>)<br><span class="hljs-keyword">const</span> p <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve,reject</span>)=&gt;</span>&#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">3</span>)<br>    <span class="hljs-title function_">resolve</span>(<span class="hljs-number">4</span>)<br>&#125;)<br>p.<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span>&#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(result)<br>&#125;)<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">5</span>)<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
 
-<p>后端接收前端请求里的数据参数（使用express框架）：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs vue">var express = require(&#x27;express&#x27;);<br>var router = express.Router();<br>// 引入连接数据库<br>var connection = require(&#x27;../db/sql.js&#x27;)<br>// 查询搜索接口<br>router.get(&#x27;/api/goods/shopList&#x27;,function(req,res,next)&#123;<br>  let searchName= req.query.searchName<br>  // 模糊查询<br>  connection.query(&#x27;select * from goods_list where name like &quot;%&#x27;+searchName+&#x27;%&quot;&#x27;,function(err,results)&#123;<br>    console.log(err);<br>	// 返回匹配到的数据给前端<br>    res.send(&#123;<br>      code:0,<br>      data:results<br>    &#125;)<br>  &#125;)<br>&#125;)<br></code></pre></td></tr></table></figure>
+<img src="/2023/09/25/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/宏任务微任务.png" srcset="/img/loading.gif" lazyload alt="宏任务微任务" style="zoom: 80%;">
 
-<p>连接数据库：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> mysql = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;mysql&#x27;</span>)<br><span class="hljs-keyword">let</span> connection = mysql.<span class="hljs-title function_">createConnection</span>(&#123;<br>    <span class="hljs-attr">host</span>:<span class="hljs-string">&#x27;localhost&#x27;</span>,<br>    <span class="hljs-attr">user</span>:<span class="hljs-string">&#x27;root&#x27;</span>,<br>    <span class="hljs-attr">password</span>:<span class="hljs-string">&#x27;admin123&#x27;</span>,<br>    <span class="hljs-attr">database</span>:<span class="hljs-string">&#x27;vue-tea-store&#x27;</span><br>&#125;)<br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = connection;<br></code></pre></td></tr></table></figure>
+<p>以上代码执行步骤：</p>
+<p>①：读取<code>&lt;script&gt;</code>标签 会将标签内代码推入宏队列中，调用栈空闲，进入<code>&lt;script&gt;</code>。</p>
+<p>②：读取<code>console.log(1)</code>同步任务，放入调用栈，打印1，出栈。</p>
+<p>③：读取</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">()=&gt;</span>&#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">2</span>)<br>&#125;,<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
 
-<p>这里连接时报错，查了原因是因为MySQL 8.0默认的密码验证模式，与node的默认密码验证模式不一致导致无法连接数据库报错。</p>
-<p>解决办法：修改验证模式</p>
-<p>打开终端，输入以下命令和密码，连接MySQL。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">mysql -u root -<span class="hljs-selector-tag">p</span><br></code></pre></td></tr></table></figure>
+<p>交给宿主环境（浏览器），将回调函数<code>()=&gt;&#123; console.log(2)&#125;</code>放入宏任务队列中，</p>
+<p>④：执行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> p <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve,reject</span>)=&gt;</span>&#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">3</span>)<br>    <span class="hljs-title function_">resolve</span>(<span class="hljs-number">4</span>)<br>&#125;)<br></code></pre></td></tr></table></figure>
 
-<p>输入以下SQL语句，修改验证模式和密码。</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> &quot;root&quot;@&quot;localhost&quot; IDENTIFIED <span class="hljs-keyword">WITH</span> mysql_native_password <span class="hljs-keyword">BY</span> &quot;password&quot;;<br></code></pre></td></tr></table></figure>
+<p>Promise对象本身是同步的，Promise对象.then()的回调为异步的，执行<code>console.log(3)</code>，进入调用栈，打印3，出栈。</p>
+<p>⑤：执行：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">p.<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span>&#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(result)<br>&#125;)<br></code></pre></td></tr></table></figure>
 
-<p>输入以下SQL语句，刷新权限，使修改立即生效。</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf">FLUSH PRIVILEGES<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
-
-<p>退出MySQL。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">exit</span>;<br></code></pre></td></tr></table></figure>
-
-<p>前端根据相应的数据进行渲染。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs vue">getData()&#123;<br>    http.$axios(&#123;<br>         url:&#x27;/api/goods/shopList&#x27;,<br>         params:&#123;<br>              searchName:this.$route.query.key<br>         &#125;<br>    &#125;).then(res=&gt;&#123;<br>          this.goodsList=res<br>          console.log(res);<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>拿到响应数据赋值给<code>this.goodsList</code>，列表根据 <code>this.goodsList</code>进行数据渲染。</p>
+<p>这是Promise对象.then()的回调，会进入微任务队列。</p>
+<p>⑥：执行<code>console.log(5)</code>，进入调用栈，打印5，出栈。</p>
+<p>⑦：此时<code>&lt;script&gt;</code>标签内同步代码走完了，调用栈空闲，会先去调度微任务队列中的回调函数，执行<code>console.log(result)</code>，打印4，出栈。</p>
+<p>⑧：调用栈空闲，微任务队列调度完毕，再去宏任务队列调度回调函数，执行<code>console.log(2)</code>，打印2，出栈。</p>
+<p>至此任务队列回调函数全部执行完，所以打印的顺序为：1  3  5  4  2。</p>
 
                 
               </div>
@@ -324,7 +340,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/">#案例实战</a>
+        <a href="/tags/JavaScript/">#JavaScript</a>
       
     </div>
   
@@ -336,8 +352,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>前后端交互-搜索框模糊查询</div>
-      <div>http://example.com/2023/09/19/前后端交互-搜索框模糊查询/</div>
+      <div>事件循环</div>
+      <div>http://example.com/2023/09/25/事件循环/</div>
     </div>
     <div class="license-meta">
       
@@ -349,7 +365,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月19日</div>
+          <div>2023年9月25日</div>
         </div>
       
       
@@ -379,18 +395,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/22/%E5%88%97%E8%A1%A8%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/" title="列表的增删改查">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">列表的增删改查</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/11/JS%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF/" title="JS中的继承">
-                        <span class="hidden-mobile">JS中的继承</span>
+                      <a href="/2023/09/25/%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E6%98%93%E7%9A%84axios/" title="手写一个简易的axios">
+                        <span class="hidden-mobile">手写一个简易的axios</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
