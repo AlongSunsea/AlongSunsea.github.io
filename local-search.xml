@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>蜗牛排序</title>
+    <link href="/2023/09/27/%E8%9C%97%E7%89%9B%E6%8E%92%E5%BA%8F/"/>
+    <url>/2023/09/27/%E8%9C%97%E7%89%9B%E6%8E%92%E5%BA%8F/</url>
+    
+    <content type="html"><![CDATA[<h1 id="蜗牛排序"><a href="#蜗牛排序" class="headerlink" title="蜗牛排序"></a>蜗牛排序</h1><p>编写一段代码为所有数组实现 <code>snail(rowsCount，colsCount)</code> 方法，该方法将 1D 数组转换为以蜗牛排序的模式的 2D 数组。无效的输入值应该输出一个空数组。当 <code>rowsCount * colsCount !==``nums.length</code> 时。这个输入被认为是无效的。</p><p>蜗牛排序从左上角的单元格开始，从当前数组的第一个值开始。然后，它从上到下遍历第一列，接着移动到右边的下一列，并从下到上遍历它。将这种模式持续下去，每列交替变换遍历方向，直到覆盖整个数组。例如，当给定输入数组 <code>[19, 10, 3, 7, 9, 8, 5, 2, 1, 17, 16, 14, 12, 18, 6, 13, 11, 20, 4, 15]</code> ，当 <code>rowsCount = 5</code> 且 <code>colsCount = 4</code> 时，需要输出矩阵如下图所示。注意，矩阵沿箭头方向对应于原数组中数字的顺序</p><img src="/2023/09/27/%E8%9C%97%E7%89%9B%E6%8E%92%E5%BA%8F/蜗牛排序.png" style="zoom:50%;"><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 输出：</span><br>[<br> [<span class="hljs-number">19</span>,<span class="hljs-number">17</span>,<span class="hljs-number">16</span>,<span class="hljs-number">15</span>],<br> [<span class="hljs-number">10</span>,<span class="hljs-number">1</span>,<span class="hljs-number">14</span>,<span class="hljs-number">4</span>],<br> [<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">12</span>,<span class="hljs-number">20</span>],<br> [<span class="hljs-number">7</span>,<span class="hljs-number">5</span>,<span class="hljs-number">18</span>,<span class="hljs-number">11</span>],<br> [<span class="hljs-number">9</span>,<span class="hljs-number">8</span>,<span class="hljs-number">6</span>,<span class="hljs-number">13</span>]<br>]<br></code></pre></td></tr></table></figure><p>思路：首先判断数组的长度，是否与<code>rowsCount * colsCount</code>一致，不一致的话<code>return []</code>。</p><p>一致的话，就进行数组赋值，先根据行数循环遍历，创建几个小的数组，再根据数组循环，插入对应的二维数组。主要根据插入的方向和行数来判断赋值。</p><p>具体操作：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title class_">Array</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">snail</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">rowsCount, colsCount</span>) &#123;<br>    <span class="hljs-keyword">let</span> arr = []<br>    <span class="hljs-keyword">if</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">length</span>!=rowsCount*colsCount) <span class="hljs-keyword">return</span> arr<br>    <span class="hljs-comment">// 根据rowCount创建二维数组，</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;i &lt; rowsCount;i++)&#123;<br>        arr.<span class="hljs-title function_">push</span>([])<br>    &#125;<br>    <span class="hljs-comment">// 定义start变量来判断是给第几个小数组赋值</span><br>    <span class="hljs-keyword">let</span> start = <span class="hljs-number">0</span>;<br>    <span class="hljs-comment">//判断正向还是逆向</span><br>    <span class="hljs-keyword">let</span> forward = <span class="hljs-literal">true</span> <br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-variable language_">this</span>.<span class="hljs-property">length</span>;i++)&#123;<br>        arr[start].<span class="hljs-title function_">push</span>(<span class="hljs-variable language_">this</span>[i])<br>        <span class="hljs-comment">// 如果是正向，且没到顶头的小数组，start++</span><br>        <span class="hljs-comment">// 如果到了顶头的数组，则改变方向，start--</span><br>        <span class="hljs-keyword">if</span>(forward)&#123;<br>            <span class="hljs-keyword">if</span>(start==rowsCount-<span class="hljs-number">1</span>)&#123;<br>                forward = <span class="hljs-literal">false</span><br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                start++<br>            &#125;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-keyword">if</span>(start===<span class="hljs-number">0</span>)&#123;<br>                forward=<span class="hljs-literal">true</span><br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                start--<br>            &#125;<br>        &#125;<br>    &#125;<br><span class="hljs-keyword">return</span> arr<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据结构与算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>事件循环</title>
     <link href="/2023/09/25/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/"/>
     <url>/2023/09/25/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/</url>
@@ -52,7 +77,7 @@
     
     <tags>
       
-      <tag>实战案例</tag>
+      <tag>案例</tag>
       
     </tags>
     
@@ -71,7 +96,7 @@
     
     <tags>
       
-      <tag>案例实战</tag>
+      <tag>案例</tag>
       
     </tags>
     
